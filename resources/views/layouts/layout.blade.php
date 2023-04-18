@@ -8,10 +8,22 @@
     <title>@yield('title')</title>
   </head>
   <body>
+    @include('includes.header')
 
-    @yield('content')
+    @if (Request::is('/'))
+        @include('includes.sBlock')
+    @endif
 
-    @include('includes.sideMenu')
-
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-8">
+                @yield('content')
+            </div>
+            <div class="col-4">
+                @include('includes.sideMenu')
+            </div>
+        </div>
+    </div>
+    @include('includes.footer')
   </body>
 </html>
