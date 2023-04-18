@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +27,4 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::post('/contacts/submit', function () {
-    return Request::all();
-})->name("contact-form");
+Route::post('/contacts/submit', 'App\Http\Controllers\ContactController@submit')->name("contact-form");
