@@ -3,15 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Request\ContactRequest;
+use App\Http\Requests\ContactRequest as RequestsContactRequest;
 
 class ContactController extends Controller
 {
-    public function submit(Request $req){
-        $valid = $req->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'theme' => 'required|min:5|max:50',
-            'message' => 'required|min:15|max:500',
-        ]);
+    public function submit(RequestsContactRequest $req){
+
     }
 }
