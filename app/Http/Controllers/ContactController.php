@@ -3,12 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Request\ContactRequest;
-use App\Http\Requests\ContactRequest as RequestsContactRequest;
+use App\Http\Requests\ContactRequest;
+use App\Models\Contact;
 
 class ContactController extends Controller
 {
-    public function submit(RequestsContactRequest $req){
+    public function submit(ContactRequest $req){
+        $contact = new Contact();
+        $contact->name = $req->input('name');
+        $contact->email = $req->input('email');
+        $contact->theme = $req->input('theme');
+        $contact->message = $req->input('message');
 
+        $contact->save();
+        return redirect()->route('contact')->with('success', 'Сообщение было отправлено!');
     }
 }
