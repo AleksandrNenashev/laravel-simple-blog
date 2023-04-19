@@ -10,8 +10,9 @@
   <body>
     @include('includes.header')
 
+
     @if (Request::is('/'))
-        @include('includes.sBlock')
+        @include('includes.serviceMessages')
     @endif
 
     <div class="container mt-5">

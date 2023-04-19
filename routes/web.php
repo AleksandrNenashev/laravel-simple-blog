@@ -28,3 +28,13 @@ Route::get('/about', function () {
 })->name('about');
 
 Route::post('/contacts/submit', 'App\Http\Controllers\ContactController@submit')->name("contact-form");
+
+Route::get('/contacts/userMessages', 'App\Http\Controllers\ContactController@showUserMessages')->name('contact-usermessages');
+
+Route::get('/contacts/userMessages/{id}', 'App\Http\Controllers\ContactController@showOneMessage')->name('contact-onemessage');
+
+Route::get('/contacts/userMessages/{id}/updateForm', 'App\Http\Controllers\ContactController@showUpdateForm')->name('contact-updateform');
+
+Route::post('/contacts/userMessages/{id}/updateSave', 'App\Http\Controllers\ContactController@update')->name("contact-update");
+
+Route::get('/contacts/userMessages/{id}/delete', 'App\Http\Controllers\ContactController@delete')->name('contact-delete');
